@@ -1,6 +1,12 @@
 # Daily todo
 Manage your daily todo list.
 # Installation
+## Arch
+dtodo is in the AUR :)
+```
+yay -S dtodo
+```
+## Other distros
 clone this repo
 ```bash
 git clone https://github.com/SkwalExe/daily-todo.git
