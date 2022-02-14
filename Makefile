@@ -5,4 +5,4 @@ copy:
 	sudo chmod 755 /bin/dtodo
 
 uninstall:
-	[ -f /bin/dtodo] && sudo rm /bin/dtodo
+	[ -f /bin/dtodo ] && sudo rm /bin/dtodo
