@@ -1,7 +1,7 @@
 all: copy
 
 copy:
-	sudo cp daily-todo.sh /bin/dtodo
+	sudo cp dtodo.sh /bin/dtodo
 	sudo chmod 755 /bin/dtodo
 
 uninstall:
