@@ -39,6 +39,12 @@ Options:
 ━━━━━━━━━━━━━━━━━
 ```
 # Uninstall
+## Arch
+```bash
+yay -R dtodo
+```
+
+## Other distros
 ```bash
 # 📂 daily-todo
 make uninstall
