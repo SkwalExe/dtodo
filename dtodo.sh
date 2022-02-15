@@ -108,6 +108,12 @@ while [ $# -gt 0 ]; do
             fi
         ;;
 
+
+        e|edit)
+            command="edit"
+            shift 
+        ;;
+
         h|help)
             command="help"
             shift
@@ -228,6 +234,12 @@ case $command in
             fi
         ;;
 
+        edit)
+            editor=${EDITOR:-vi}
+            $editor ~/.dtodo
+            printTodo
+        ;;
+
         help)
             printf "${bg_blue} Daily Todo Help ${reset}\n"
             printf "${blue}━━━━━━━━━━━━━━━━━${reset}\n"
@@ -237,14 +249,16 @@ case $command in
             printf "Manage your daily todo list\n"
             printf "${blue}━━━━━━━━━━━━━━━━━${reset}\n"
             printf "Options:\n"
-            printf "  ${green}p, print${reset}    - Print the daily todo list\n"
-            printf "  ${green}a, add${reset}      - Add a new task to the daily todo list\n"
-            printf "  ${green}c, clear${reset}    - Clear the daily todo list\n"
-            printf "  ${green}d, done${reset}     - Mark a task as done\n"
-            printf "  ${green}u, undone${reset}   - Mark a task as undone\n"
-            printf "  ${green}ua, undoall${reset} - Mark all tasks as undone\n"
-            printf "  ${green}fd, firstdone${reset} - Mark the first undone task as done\n"
-            printf "  ${green}h, help${reset}     - Print this help message\n"
+            printf "  ${green}p, print${reset}       - Print the daily todo list\n"
+            printf "  ${green}a, add${reset}         - Add a new task to the daily todo list\n"
+            printf "  ${green}c, clear${reset}       - Clear the daily todo list\n"
+            printf "  ${green}d, done${reset}        - Mark a task as done\n"
+            printf "  ${green}u, undone${reset}      - Mark a task as undone\n"
+            printf "  ${green}ua, undoall${reset}    - Mark all tasks as undone\n"
+            printf "  ${green}fd, firstdone${reset}  - Mark the first undone task as done\n"
+            printf "  ${green}r, remove${reset}      - Remove a task from the daily todo list\n"
+            printf "  ${green}e, edit${reset}        - Manually edit the todo list\n"
+            printf "  ${green}h, help${reset}        - Print this help message\n"
             printf "${blue}━━━━━━━━━━━━━━━━━${reset}\n"
 
 
