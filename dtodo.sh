@@ -155,7 +155,7 @@ case $command in
                 exit 1;
             else
                 printf "${blue}[ i ] : Marking task $taskId as done\n"
-                sed -i "${taskId}s/\[ \]/\[x\] /" ~/.dtodo
+                sed -i "${taskId}s/\[ \]/\[x\]/" ~/.dtodo
                 printTodo
             fi
        
