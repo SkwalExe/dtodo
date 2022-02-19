@@ -192,6 +192,7 @@ case "$command" in
 
 
     e|edit)
+        shift
         editor=${1:-vi}
         $editor ~/.dtodo
         printTodo
