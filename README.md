@@ -51,6 +51,6 @@ make uninstall
 ```
 
 # final
-If you have any probleme, don't hesitate to open an issue
+If you have any problem, don't hesitate to open an issue
 # contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
