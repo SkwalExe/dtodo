@@ -49,6 +49,10 @@ yay -R dtodo
 # 📂 daily-todo
 make uninstall
 ```
+# Skwaltributors
+<a href="https://github.com/SkwalExe/dtodo/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=SkwalExe/dtodo" />
+</a>
 
 # final
 If you have any probleme, don't hesitate to open an issue
