@@ -104,7 +104,7 @@ function parseArgs() {
             checkExist
             if [ $# -gt 1 ]; then
                 shift
-                taskName="$@"
+                taskName="$*"
             
                 if [[ -z ${taskName// } ]]; then
                     printf "${red}[ x ] : Missing argument for add\n"
@@ -220,11 +220,11 @@ function parseArgs() {
 
                 if [[ $taskId == 'last' ]]; then
                     printf "\r${blue}[ i ] : Removing the last task\n"
-                    sed -i "`cat ~/.$tdfile|wc -l`d" ~/.$tdfile
+                    sed -i "$(cat ~/.$tdfile|wc -l)d" ~/.$tdfile
                 else
                     re='^[0-9]+$'
 
-                    taskId="$@"
+                    taskId="$*"
 
                     [[ ! $taskId =~ $re ]] && printf "${red}[ x ] : Invalid task id, note that you can only specify one task : ${red}$taskId\n" && exit 1;
                     
@@ -253,7 +253,7 @@ function parseArgs() {
           
             for list in "${lists_arr[@]}"
             do
-                printf "\n${purple}[ i ] : Printing list `basename $list`\n"
+                printf "\n${purple}[ i ] : Printing list $(basename $list)\n"
                 printTodo $list
             done
             
