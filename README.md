@@ -9,11 +9,11 @@ yay -S dtodo
 ## Other distros
 clone this repo
 ```bash
-git clone https://github.com/SkwalExe/daily-todo.git
+git clone https://github.com/SkwalExe/dtodo.git
 ```
 run make
 ```bash
-# 📂 daily-todo
+# 📂 dtodo
 make
 ```
 # Usage
@@ -21,7 +21,7 @@ make
  Daily Todo Help 
 ━━━━━━━━━━━━━━━━━
 Author: @SkwalExe
-Github: https://github.com/SkwalExe/daily-todo
+Github: https://github.com/SkwalExe/dtodo
 ━━━━━━━━━━━━━━━━━
 Manage your daily todo list
 ━━━━━━━━━━━━━━━━━
@@ -33,10 +33,12 @@ Options:
   u, undo 7 9    - Mark a task as undone [D: the first done task]
   ua, undoall    - Mark all tasks as undone
   r, remove 17 4 - Remove a task from the daily todo list [D: the last task]
-  e, edit nano   - Manually edit the todo list [Editor: vi]
+  e, edit nano   - Manually edit the todo list [Default: vi]
+  pa, printall   - Print all daily todo lists
+  l, list monday - Define what todo list to perform the action on
+  rl, removelist - Remove a daily todo list
   h, help        - Print this help message
 ━━━━━━━━━━━━━━━━━
-
 ```
 # Uninstall
 ## Arch
@@ -46,7 +48,7 @@ yay -R dtodo
 
 ## Other distros
 ```bash
-# 📂 daily-todo
+# 📂 dtodo
 make uninstall
 ```
 # Skwaltributors
