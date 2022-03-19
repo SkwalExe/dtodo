@@ -224,15 +224,13 @@ function parseArgs() {
                 else
                     re='^[0-9]+$'
 
-                    while [ $# -gt 0 ]; do
-                        taskId="$1"
+                    taskId="$@"
 
-                        [[ ! $taskId =~ $re ]] && printf "${red}[ x ] : Invalid task id\n" && exit 1;
-                        
-                        printf "${blue}[ i ] : Removing task $taskId\n"
-                        sed -i "${taskId}d" ~/.$tdfile
-                        shift
-                    done
+                    [[ ! $taskId =~ $re ]] && printf "${red}[ x ] : Invalid task id, note that you can only specify one task : ${red}$taskId\n" && exit 1;
+                    
+                    printf "${blue}[ i ] : Removing task $taskId\n"
+                    sed -i "${taskId}d" ~/.$tdfile
+                    shift
                 fi  
                 printTodo ~/.$tdfile
 
