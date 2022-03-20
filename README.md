@@ -49,6 +49,7 @@ Options:
   pa, printall   - Print all daily todo lists
   l, list monday - Define what todo list to perform the action on
   rl, removelist - Remove a daily todo list
+  uaa, undoallall - Undo all tasks in all daily todo lists
   h, help        - Print this help message
 ━━━━━━━━━━━━━━━━━
 ```

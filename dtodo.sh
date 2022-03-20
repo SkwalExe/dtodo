@@ -259,6 +259,20 @@ function parseArgs() {
             
         ;;
 
+        uaa|undoallall)
+
+            lists_arr=($(ls ~/.dtodo*))
+
+            for list in "${lists_arr[@]}"
+            do
+                printf "\n${purple}[ i ] : Undoing all tasks in list $(basename $list)\n"
+                sed -i "s/\[x\]/\[ \]/g" $list
+                printTodo $list
+            done
+
+
+        ;;
+
         h|help)
             printf "${bg_blue} Daily Todo Help ${reset}\n"
             printf "${blue}━━━━━━━━━━━━━━━━━${reset}\n"
@@ -278,6 +292,7 @@ function parseArgs() {
             printf "  ${green}e, edit ${blue}nano${reset}   - Manually edit the todo list ${yellow}[Default: vi]\n"
             printf "  ${green}pa, printall${reset}   - Print all daily todo lists\n"
             printf "  ${green}l, list${blue} monday${reset}${reset} - Define what todo list to perform the action on\n"
+            printf "  ${green}uaa, undoallall${reset} - Undo all tasks in all daily todo lists\n"
             printf "  ${green}rl, removelist${reset} - Remove a daily todo list\n"
             printf "  ${green}h, help${reset}        - Print this help message\n"
             printf "${blue}━━━━━━━━━━━━━━━━━${reset}\n"
