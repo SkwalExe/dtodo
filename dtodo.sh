@@ -25,7 +25,6 @@ function printTodoList() { # Prints the specified (first argument passed to the 
 
     if [[ -z ${content// } ]]; then # the // is to remove trailing spaces
         printf "${blue}[ i ] : The daily todo list is empty \n"
-        exit 1;
     else
         printf "\n${blue}$content\n"
     fi
