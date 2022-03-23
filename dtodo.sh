@@ -18,6 +18,11 @@ bg_purple='\033[0;45m'
 reset='\033[0m'
 
 
+if [ "$EUID" -eq "0" ]; then
+    echo -e "${red}Error: Don't run this script as root${reset}"
+    exit 1
+fi
+
 
 
 function printTodoList() { # Prints the specified (first argument passed to the function) todo list
@@ -39,6 +44,8 @@ function checkExist() { # Check if the current todo file ($tdfile) exists
         fi
     fi
 }
+
+checkExist
 
 tdfile="dtodo"  # the todo file to execute the action on 
                 # the todo files are ~/.dtodo-*
