@@ -45,12 +45,12 @@ function checkExist() { # Check if the current todo file ($tdfile) exists
     fi
 }
 
-checkExist
 
 tdfile="dtodo"  # the todo file to execute the action on 
                 # the todo files are ~/.dtodo-*
                 # the default todo file is ~/.dtodo
 
+checkExist
 
 
 function parseArgs() { # parse command line arguments
