@@ -29,7 +29,7 @@ function printTodoList() { # Prints the specified (first argument passed to the 
     content=$(cat -b $1) # -b to add lien number
 
     if [[ -z ${content// } ]]; then # the // is to remove trailing spaces
-        printf "${blue}[ i ] : The daily todo list is empty \n"
+        printf "\n${blue}[ i ] : The daily todo list is empty \n"
     else
         printf "\n${blue}$content\n"
     fi
@@ -56,7 +56,7 @@ checkExist
 function parseArgs() { # parse command line arguments
 
 
-    command=${1:-default} # the command to execute on the todo list # if not argument is specified, default command (printall) is used
+    command=${1:-${command:-default}} # the command to execute on the todo list # if not argument is specified, default command (printall) is used
    
     case "$command" in
 
@@ -71,6 +71,7 @@ function parseArgs() { # parse command line arguments
                     else
                         tdfile="dtodo-$_tdfile"
                         shift
+                        command="print"
                         parseArgs $@ # parse args again to execute the specified command on the just specified todo list
                     fi
                 
@@ -305,6 +306,8 @@ function parseArgs() { # parse command line arguments
             printf "  ${green}h, help${reset}        - Print this help message\n"
             printf "${blue}━━━━━━━━━━━━━━━━━${reset}\n"
         ;;
+
+        
 
         *)
             printf "${red}[ x ] : Invalid argument : $1\n"
