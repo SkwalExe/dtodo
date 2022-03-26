@@ -54,6 +54,23 @@ make uninstall
   <img src="https://contrib.rocks/image?repo=SkwalExe/dtodo" />
 </a>
 
+# Docker 🐳
+
+### Build 🛠️
+
+```bash
+# 📂 dtodo/
+docker build -t dtodo .
+```
+
+### Run 🏃
+
+```
+docker run --rm -it dtodo
+
+skwal@2de4d04723e4:/$ dtodo [OPTIONS]
+```
+
 # final
 
 If you have any problem, don't hesitate to open an issue
