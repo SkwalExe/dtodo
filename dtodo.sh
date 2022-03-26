@@ -229,18 +229,49 @@ function parseArgs() { # parse command line arguments
 
                 if [[ $taskId == 'last' ]]; then
                     printf "\r${blue}[ i ] : Removing the last task\n"
-                    sed -i "$(cat ~/.$tdfile|wc -l)d" ~/.$tdfile # remove the last line
+                    sed -i "`cat ~/.$tdfile|wc -l`d" ~/.$tdfile
                 else
-                    re='^[0-9]+$' # regex to check if the argument is a number
+                    re='^[0-9]+$'
 
-                    taskId="$*" # can only specify on task to remove because else we would have an error 
+                    while [ $# -gt 0 ]; do
+                        taskId="$1"
 
-                    [[ ! $taskId =~ $re ]] && printf "${red}[ x ] : Invalid task id, note that you can only specify one task : ${red}$taskId\n" && exit 1; # if the argument is not a number print error and exit
-                    
-                    printf "${blue}[ i ] : Removing task $taskId\n"
-                    sed -i "${taskId}d" ~/.$tdfile # remove the specified line
-                    shift
-                fi  
+                        [[ ! $taskId =~ $re ]] && printf "${red}[ x ] : Invalid task id : $taskId\n" && exit 1;
+                        
+                        printf "${blue}[ i ] : Removing task $taskId\n"
+                        sed -i "${taskId}s/.*/TO_REMOVE/" ~/.$tdfile # replace the specified line with TO_REMOVE
+                        # Because if we directly remove the line the numbering will be wrong
+                        # Exemple
+                        #
+                        # 1 - task1
+                        # 2 - task2
+                        # 3 - task3
+                        # 
+                        # we want to remove 1 and 2 
+                        #
+                        # so we want to be left with 
+                        #
+                        # 3 - task3     
+                        #
+                        # but if we directly remove the line the numbering will be wrong : 
+                        #
+                        # remove 1
+                        #
+                        # - Line 1 removed
+                        # 1 - task2 <- new numbering
+                        # 2 - task3 <- new numbering
+                        #
+                        # remove 2
+                        #
+                        # 1 - task2
+                        # - Line 2 removed
+                        #
+                        # and we are left with task 2 instead of task 3
+
+                        shift
+                    done
+                fi 
+                sed -i "/^TO_REMOVE$/d" ~/.$tdfile # remove all lines containing TO_REMOVE
                 printTodoList ~/.$tdfile
 
             fi
