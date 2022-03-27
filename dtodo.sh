@@ -17,6 +17,7 @@ bg_purple='\033[0;45m'
 
 reset='\033[0m'
 
+version="0.2.2"
 
 if [ "$EUID" -eq "0" ]; then
     echo -e "${red}Error: Don't run this script as root${reset}"
@@ -313,6 +314,10 @@ function parseArgs() { # parse command line arguments
 
         ;;
 
+        v|version) # print the version
+            printf "\n${purple}Dtodo => version $version\n"
+        ;;
+
         h|help)
             printf "${bg_blue} Daily Todo Help ${reset}\n"
             printf "${blue}━━━━━━━━━━━━━━━━━${reset}\n"
@@ -335,6 +340,8 @@ function parseArgs() { # parse command line arguments
             printf "  ${green}uaa, undoallall${reset} - Undo all tasks in all daily todo lists\n"
             printf "  ${green}rl, removelist${reset} - Remove a daily todo list\n"
             printf "  ${green}h, help${reset}        - Print this help message\n"
+            printf "  ${green}v, version${reset}     - Print the version of the program\n"
+
             printf "${blue}━━━━━━━━━━━━━━━━━${reset}\n"
         ;;
 
