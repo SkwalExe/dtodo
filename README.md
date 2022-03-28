@@ -6,7 +6,7 @@
 
 # Installation
 
-## Arch
+## Arch 🐧
 
 dtodo is in the AUR :)
 
@@ -14,7 +14,7 @@ dtodo is in the AUR :)
 yay -S dtodo
 ```
 
-## Other distros
+## Other distros 🐧
 
 clone this repo
 
@@ -29,19 +29,25 @@ run make
 make
 ```
 
+# Windows 🪟
+
+Since this is a bash script, you normally can't run it directly on windows.
+
+You will have to install [Git Bash](https://git-scm.com/download/win) and follow the instructions for [Other distros](#other-distros).
+
 # Usage
 
 ![](images/usage.png)
 
 # Uninstall
 
-## Arch
+## Arch 🐧
 
 ```bash
 yay -R dtodo
 ```
 
-## Other distros
+## Other distros 🐧
 
 ```bash
 # 📂 dtodo
