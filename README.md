@@ -62,6 +62,14 @@ make uninstall
 
 # Docker 🐳
 
+## Run the latest version
+
+```bash
+docker run --rm -it ghcr.io/skwalexe/dtodo:main
+```
+
+## Test your changes 🚧
+
 ### Build 🛠️
 
 ```bash
