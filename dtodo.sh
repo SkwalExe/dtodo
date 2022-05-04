@@ -38,11 +38,20 @@ function printTodoList() { # Prints the specified (first argument passed to the 
 
 function checkExist() { # Check if the current todo file ($tdfile) exists
     if [ ! -f ~/.$tdfile ]; then #
-        printf "${blue}[ i ] : Creating ~/.${tdfile}...\n" 
-        if ! touch ~/.$tdfile; then # try to create the file, else print error and exit
-            printf "${red}[ x ] : Failed to create ~/.$tdfile\n"
-            exit 1;
+        # ask the user if he wants to create a new todo file
+        printf "\n${blue}[ i ] : The daily todo file doesn't exist, do you want to create it ? (y/N)${reset} "
+        read answer
+        if [[ $answer =~ ^[Yy]$ ]]; then
+            printf "${blue}[ i ] : Creating ~/.${tdfile}...\n" 
+            if ! touch ~/.$tdfile; then # try to create the file, else print error and exit
+                printf "${red}[ x ] : Failed to create ~/.$tdfile\n"
+                exit 1;
+            fi
+        else
+            printf "\n${red}[ i ] : The daily todo file doesn't exist, exiting...${reset}\n"
+            exit 1
         fi
+        
     fi
 }
 
@@ -92,8 +101,15 @@ function parseArgs() { # parse command line arguments
                         printf "${red}[ x ] : Missing argument for removelist\n"
                         exit 1;
                     else
-                        rm -f ~/.dtodo-$toremove
-                        printf "${green}[ v ] : Removed list ${toremove}\n"
+                        # ask confirmation 
+                        printf "\n${blue}[ i ] : Do you want to remove the todo list ${toremove} ? (y/N)${reset} "
+                        read answer
+                        if [[ $answer =~ ^[Yy]$ ]]; then
+                            rm -f ~/.dtodo-$toremove
+                            printf "${green}[ v ] : Removed list ${toremove}\n"
+                        else
+                            printf "\n${blue}[ i ] : The todo list ${toremove} has not been removed\n"
+                        fi
                     fi
                 
                 else
