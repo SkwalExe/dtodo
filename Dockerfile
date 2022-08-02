@@ -1,4 +1,4 @@
-FROM ubuntu:rolling
+FROM ubuntu:22.04
 COPY ./dtodo.sh /usr/local/bin/dtodo
 LABEL maintainer="skwal.net@gmail.com"
 RUN useradd -m -s /bin/bash skwal
