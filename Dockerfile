@@ -1,4 +1,4 @@
-FROM ubuntu:22.10
+FROM ubuntu:kinetic
 COPY ./dtodo.sh /usr/local/bin/dtodo
 LABEL maintainer="skwal.net@gmail.com"
 RUN useradd -m -s /bin/bash skwal
